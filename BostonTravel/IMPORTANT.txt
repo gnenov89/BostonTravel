@@ -1,0 +1,5 @@
+expo debbuger steps to stop errors:
+Step 1: 'command+d'
+On the menu select 'Stop remote debbuger'
+
+Keep the connection on LAN otherwise it will be super slow.
