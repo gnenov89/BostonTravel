@@ -3,9 +3,11 @@ import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import MapNavigator from './navigation/MapNavigation';
+import { enableScreens } from 'react-native-screens';
 // Ignore warning messaages
 // import { YellowBox } from 'react-native';
 // YellowBox.ignoreWarnings(['Remote debugger']);
+enableScreens();
 
 const fetchFonts = () => {
   return Font.loadAsync({

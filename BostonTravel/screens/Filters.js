@@ -12,6 +12,10 @@ const Filters = props => {
     );
 };
 
+Filters.NavigationOptions = {
+    headerTitle: 'Filter Maps'
+};
+
 const styles = StyleSheet.create({
     screen: {
         flex: 1,

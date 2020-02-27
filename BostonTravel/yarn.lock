@@ -3723,6 +3723,10 @@ react-native-iphone-x-helper@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
 
+react-native-platform-touchable@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-platform-touchable/-/react-native-platform-touchable-1.1.1.tgz#fde4acc65eea585d28b164d0c3716a42129a68e4"
+
 react-native-reanimated@~1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.4.0.tgz#7f1acbf9be08492d834f512700570978052be2f9"
@@ -3737,9 +3741,9 @@ react-native-safe-area-view@^0.14.6, react-native-safe-area-view@^0.14.8:
   dependencies:
     hoist-non-react-statics "^2.3.1"
 
-react-native-screens@2.0.0-alpha.12:
-  version "2.0.0-alpha.12"
-  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.0.0-alpha.12.tgz#35a6ef3b472958e9d35f0ca9e582d0d158f8e379"
+react-native-screens@^2.0.0-alpha.12:
+  version "2.0.0-beta.13"
+  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.0.0-beta.13.tgz#ada338c3b46d016b06d0416e59d4aa0b9b39c731"
   dependencies:
     debounce "^1.2.0"
 
@@ -3803,6 +3807,12 @@ react-native-web@~0.11.7:
 react-navigation-drawer@^2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/react-navigation-drawer/-/react-navigation-drawer-2.4.1.tgz#a9257c6ca56e1a5500bbd0c8539e986ffb3a4253"
+
+react-navigation-header-buttons@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/react-navigation-header-buttons/-/react-navigation-header-buttons-3.0.5.tgz#5b8c0fc32bc59382f02015e4b2f19a135b99dca4"
+  dependencies:
+    react-native-platform-touchable "^1.1.1"
 
 react-navigation-stack@^2.2.1:
   version "2.2.1"
