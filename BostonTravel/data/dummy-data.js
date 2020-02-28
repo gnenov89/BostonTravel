@@ -22,7 +22,7 @@ export const MAPS = [
     new Map(
         'm2',
         't2',
-        'HarbourWalk',
+        'MapOFHarbourWalk',
         'free',
         'simple',
         'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/UnderCharlestownBridge.jpg/1920px-UnderCharlestownBridge.jpg'
@@ -31,7 +31,7 @@ export const MAPS = [
     new Map(
         'm3',
         't3',
-        'HarvardYard',
+        'MapOfHarvardYard',
         'free',
         'simple',
         'https://upload.wikimedia.org/wikipedia/commons/b/b5/Harvard_University_Massachusetts_Hall.jpg'

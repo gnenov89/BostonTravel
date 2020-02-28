@@ -6,31 +6,20 @@ import {
     FlatList, 
     StyleSheet, Image } from 'react-native';
 import { TOURS, MAPS } from '../data/dummy-data';
-
-
+import MapItem from '../components/MapItem';
+import MapList from '../components/MapList';
 const MapsOfTours = props => {  
     // console.log(props);
 
-    const renderMapItem = itemData => {
-        return (
-        <View>
-            <Text>{itemData.item.title}</Text>
-            <Image source={{uri: itemData.item.imageUrl}}
-                   style={{width: 400, height: 400}} />
-        </View>)
-    }
+    
       const catId = props.navigation.getParam('categoryId')
     //   const selectedCategory = TOURS.find(cat => cat.id === catId)
 
     const displayedMaps = MAPS.filter( map => map.categoryIds.indexOf(catId) >= 0 );
-    return ( 
-    <View style={styles.screen}>
-        <FlatList 
-        data={displayedMaps} 
-        keyExtractor={(item, index) => item.id}
-        renderItem={renderMapItem}  />
-        
-    </View>
+    return ( <MapList 
+    listData={displayedMaps}
+    navigation={props.navigation} />
+   
 
     );
 };
@@ -45,11 +34,7 @@ MapsOfTours.navigationOptions = (navigationData) => {
     };
 
 const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
+    
 
 });
 

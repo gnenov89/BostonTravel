@@ -1,28 +1,19 @@
 // This will hold all the favorite components of a specific user 
 import React from 'react';
-import { View, Text, StyleSheet} from 'react-native';
-
-
-
-
+import MapList from '../components/MapList';
+import { MAPS} from '../data/dummy-data';
 
 
 const FavoriteTours = props => {
-    return ( 
-    <View style={styles.screen}>
-        <Text>Favaroites screen</Text>
-    </View>
+    const favMaps = MAPS.filter(map => map.id === 'm1' || map.id === 'm2')
+    return (<MapList listData={favMaps} navigation={props.navigation}/>
 
     );
 };
 
-const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
+FavoriteTours.navigationOptions = {
+    headerTitle: "Your favorite tours"
+}
 
-});
 
 export default FavoriteTours;

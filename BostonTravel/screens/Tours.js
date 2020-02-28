@@ -44,9 +44,9 @@ const Tours = props => {
 // adding navigationOptions to the props of Tours component
 Tours.navigationOptions = {
     headerTitle: 'Tours',
-    headerLeft: ( <HeaderButtons>
+    headerLeft: () => <HeaderButtons>
         <Item title='Menu' iconName='icon-menu' onPress={() => {}}/>
-    </HeaderButtons>)
+    </HeaderButtons>
 }
 
 const styles = StyleSheet.create({
