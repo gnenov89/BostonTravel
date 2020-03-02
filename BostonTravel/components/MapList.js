@@ -14,7 +14,8 @@ const MapList = props => {
              props.navigation.navigate({
                  routeName: 'MapDetails',
                  params:{
-                     mapId: itemData.item.id
+                     mapId: itemData.item.id,
+                     mapTitle: itemData.item.title
                  }
                  });
          } } />

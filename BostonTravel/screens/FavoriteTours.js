@@ -1,12 +1,17 @@
 // This will hold all the favorite components of a specific user 
 import React from 'react';
 import MapList from '../components/MapList';
-import { MAPS} from '../data/dummy-data';
+import { useSelector } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import  HeaderButton from '../components/HeaderButton';
 
+
+
+
 const FavoriteTours = props => {
-    const favMaps = MAPS.filter(map => map.id === 'm1' || map.id === 'm2')
+    const favMaps = useSelector(state => state.maps.favoriteMaps);
+
+    
     return (<MapList listData={favMaps} navigation={props.navigation}/>
 
     );
