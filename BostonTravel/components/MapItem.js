@@ -6,6 +6,7 @@ import {
     TouchableOpacity,
     ImageBackground
  } from 'react-native';
+import DefaultText from './DefaultText';
 
 const MapItem = props => {
      return (
@@ -22,8 +23,8 @@ const MapItem = props => {
                   </ImageBackground>
               </View>
               <View style={{...styles.mapRow, ...styles.mapDetails}}>
-                  <Text>{props.complexity}</Text>
-                  <Text>{props.affordability}</Text>
+                  <DefaultText>{props.complexity}</DefaultText>
+                  <DefaultText>{props.affordability}</DefaultText>
               </View>
              </View>
          </TouchableOpacity>

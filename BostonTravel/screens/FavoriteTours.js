@@ -2,7 +2,8 @@
 import React from 'react';
 import MapList from '../components/MapList';
 import { MAPS} from '../data/dummy-data';
-
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import  HeaderButton from '../components/HeaderButton';
 
 const FavoriteTours = props => {
     const favMaps = MAPS.filter(map => map.id === 'm1' || map.id === 'm2')
@@ -11,8 +12,22 @@ const FavoriteTours = props => {
     );
 };
 
-FavoriteTours.navigationOptions = {
-    headerTitle: "Your favorite tours"
+// FavoriteTours.navigationOptions = {
+//     headerTitle: "Your favorite tours"
+// }
+
+FavoriteTours.navigationOptions = (navData) => {
+    return {
+    headerTitle: 'Favorites',
+    headerLeft: () => <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item 
+        title='Menu'  
+        iconName='ios-menu' 
+        onPress={() => {
+            navData.navigation.toggleDrawer();
+        }}/>
+    </HeaderButtons>
+    };
 }
 
 

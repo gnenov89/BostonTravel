@@ -21,7 +21,7 @@ const MapDetails = props => {
     );
 };
 
-// Asdding navigation options to this screen. Adding title ot the Header
+// Asdding navigation options to this screen. Adding title to the Header
 MapDetails.navigationOptions = (navigationData) => {
     const mapId = navigationData.navigation.getParam('mapId');
     const selectedMap = MAPS.find(map => map.id === mapId);

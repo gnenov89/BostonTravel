@@ -2,7 +2,7 @@ import React, { useState }from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
-import MapNavigator from './navigation/MapNavigation';
+import MainNavigator from './navigation/MapNavigation';
 import { enableScreens } from 'react-native-screens';
 // Ignore warning messaages
 import { YellowBox } from 'react-native';
@@ -30,7 +30,7 @@ export default function App() {
       />
     );
   }
-  return <MapNavigator />
+  return <MainNavigator />
 }
 
 const styles = StyleSheet.create({

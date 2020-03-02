@@ -10,6 +10,7 @@ import {
     TouchableOpacity
      } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import  HeaderButton from '../components/HeaderButton';
 // this is will render itemData-which is available in a flatlist
 // itemData.item.title is data that we use from dummy-data.js in the Tour object 
 
@@ -42,11 +43,18 @@ const Tours = props => {
     );
 };
 // adding navigationOptions to the props of Tours component
-Tours.navigationOptions = {
+Tours.navigationOptions = (navData) => {
+    return {
     headerTitle: 'Tours',
-    headerLeft: () => <HeaderButtons>
-        <Item title='Menu' iconName='icon-menu' onPress={() => {}}/>
+    headerLeft: () => <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item 
+        title='Menu'  
+        iconName='ios-menu' 
+        onPress={() => {
+            navData.navigation.toggleDrawer();
+        }}/>
     </HeaderButtons>
+    };
 }
 
 const styles = StyleSheet.create({

@@ -16,24 +16,31 @@ import { createMaterialBottomTabNavigator} from 'react-navigation-material-botto
 
 
 
+
 const defaultStackNavOptions = 
     {
         headerStyle: {
             backgroundColor: Platform.OS === 'android?' ? Colors.primaryColor : 'white'
+        },
+        headerTitleStyle: {
+            fontFamily: 'open-sans-bold'
         },
         headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor  
     
 };
 
 
-const MapNavigator = createStackNavigator({
-    Tours: Tours,
+const MapNavigator = createStackNavigator(
+    {
+    Tours: {
+        screen: Tours
+    },
     CategoryTours: {
         screen: MapsOfTours 
     },
-    MapDetails: MapDetails,
-    FavoriteTours: FavoriteTours,
-    Filters: Filters
+    MapDetails: {
+        screen: MapDetails
+    }
 }, 
 {
     // These default options will be applied to every screen
@@ -41,20 +48,6 @@ const MapNavigator = createStackNavigator({
     // initialRouteName : 'your preffered initial screen' - optional 
     defaultNavigationOptions: defaultStackNavOptions
 });
-
-// const FiltersNavigator = createStackNavigator({
-//     Filers: Filters
-// });
-
-// const MainNavigator = createDrawerNavigator({
-//     Tours: Tours,
-//     CategoryTours: {
-//         screen: MapsOfTours 
-//     },
-//     MapDetails: MapDetails,
-//     FavoriteTours: FavoriteTours,
-//     Filters: Filters
-// });
 
 
 const FavNavigator = createStackNavigator({
@@ -96,4 +89,31 @@ Platform.OS  === 'android'
  }
 });
 
-export default createAppContainer(MapsFavNavigator);
+const FiltersNavigator = createStackNavigator({
+    Filters: Filters
+},
+{
+    defaultNavigationOptions: defaultStackNavOptions
+});
+
+const MainNavigator = createDrawerNavigator({
+    Mapsfavs:{
+        screen: MapsFavNavigator,
+        navigationOptions: {
+            drawerLabel: 'Tours'
+        }
+    },   
+    Filters: FiltersNavigator
+}, 
+{
+    contentOptions: {
+      activeTintColor: Colors.accentColor,
+      labelStyle: {
+        fontFamily: 'open-sans-bold'
+      }
+    }
+  }
+);
+
+
+export default createAppContainer(MainNavigator);
