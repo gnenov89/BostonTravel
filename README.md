@@ -26,7 +26,7 @@ Solution: Boston Tours brings interactive maps of 3 hisotrical tours in Boston: 
 * [React-native-google-maps](https://github.com/react-native-community/react-native-maps)
 * [Expo-cli](https://docs.expo.io/versions/latest/workflow/expo-cli/)
 * [React-native-navigation]()
-* [React-native-authentification])
+* [React-native-authentification]
 
 
 
