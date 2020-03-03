@@ -1,6 +1,5 @@
 # BostonTravel
 
-Travel guid application 
 ## About 
 
 The Poblem: Walking tours are a great way to learn about an area. Unfortunately, guided tours are often expensive and require that you stick with the group and your guide, with little to no time to do your own exploring. 
