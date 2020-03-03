@@ -13,11 +13,12 @@ import { YellowBox } from 'react-native';
 YellowBox.ignoreWarnings(['Remote debugger']);
 enableScreens();
 
-
+//Here we create a root deducer with combineReducers
+//We will also add UserAuth reducers and all other future features
 const rootReducer = combineReducers({
   maps: mapsReducer
-})
-
+});
+// Creates store for the entire app's state management 
 const store = createStore(rootReducer);
 
 const fetchFonts = () => {
@@ -43,7 +44,9 @@ export default function App() {
   }
   return <Provider store={store}><MainNavigator /></Provider>
 }
-
+// above we wrap the MainNavigator which is the main component
+// which will manage all of our component where we need to pass our state
+// it takes one important prop store={store}
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -1,6 +1,7 @@
 // This will hold all the favorite components of a specific user 
 import React from 'react';
 import MapList from '../components/MapList';
+// This hood alows us to get a slice of out state
 import { useSelector } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import  HeaderButton from '../components/HeaderButton';

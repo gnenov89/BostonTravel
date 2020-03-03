@@ -3,12 +3,13 @@ import {MAPS} from '../../data/dummy-data';
 import { TOGGLE_FAVORITE } from '../actions/maps';
 import FavoriteTours from '../../screens/FavoriteTours';
 
+// seting up initial state
 initilaState ={
     maps: MAPS,
     filteredMaps: MAPS,
     favoriteMaps: []
 }
-
+// creating the reducer function 
 const mapsReducer = (state = initilaState, action) =>{
     switch (action.type) {
         case TOGGLE_FAVORITE:
@@ -26,5 +27,5 @@ const mapsReducer = (state = initilaState, action) =>{
     }
 
 }
-
+// mapsReducer goes to App.js 
 export default mapsReducer;
