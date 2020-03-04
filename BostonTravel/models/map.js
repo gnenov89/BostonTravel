@@ -6,7 +6,10 @@ class Map {
         title, 
         affordability, 
         complexity, 
-        imageUrl 
+        imageUrl,
+        isHistoric,
+        isWalkByWater,
+        isEducational
         )  
         {
             this.id = id;
@@ -14,7 +17,10 @@ class Map {
             this.title = title;
             this.affordability = affordability;
             this.complexity = complexity;
-            this.imageUrl = imageUrl
+            this.imageUrl = imageUrl;
+            this.isHistoric = isHistoric;
+            this.isWalkByWater = isWalkByWater;
+            this.isEducational = isEducational
                     
         }
 }

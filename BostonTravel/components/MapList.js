@@ -1,9 +1,15 @@
 import React from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
+
 import MapItem from './MapItem';
+import { useSelector } from 'react-redux';
 
 const MapList = props => {
+    // you can use useSelevtor only on the root level of a function
+    // not on a nested function 
+    const favoriteMaps = useSelector(state => state.maps.favoriteMaps);
     const renderMapItem = itemData => {
+        const isFavorite = favoriteMaps.some(map => map.id === itemData.item.id);
         return (
          <MapItem 
          title={itemData.item.title}
@@ -15,7 +21,8 @@ const MapList = props => {
                  routeName: 'MapDetails',
                  params:{
                      mapId: itemData.item.id,
-                     mapTitle: itemData.item.title
+                     mapTitle: itemData.item.title,
+                     isFav: isFavorite
                  }
                  });
          } } />

@@ -5,14 +5,20 @@ import MapList from '../components/MapList';
 import { useSelector } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import  HeaderButton from '../components/HeaderButton';
+import { View,  StyleSheet } from 'react-native';
 
+import DefaultText from '../components/DefaultText';
 
 
 
 const FavoriteTours = props => {
     const favMaps = useSelector(state => state.maps.favoriteMaps);
 
-    
+    if (favMaps.length === 0 || !favMaps) {
+        return <View style={styles.content}>
+            <DefaultText>No Favorite Maps found</DefaultText>
+        </View>
+    }
     return (<MapList listData={favMaps} navigation={props.navigation}/>
 
     );
@@ -36,5 +42,11 @@ FavoriteTours.navigationOptions = (navData) => {
     };
 }
 
-
+const styles = StyleSheet.create({
+    content: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+});
 export default FavoriteTours;

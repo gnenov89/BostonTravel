@@ -6,8 +6,8 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import  HeaderButton from '../components/HeaderButton';
 // import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Colors from '../constants/Colors';
-
-
+import { useDispatch } from 'react-redux';
+import { setFilters } from '../store/actions/maps';
 
 
 const FilterSwitch = props => {
@@ -26,14 +26,16 @@ const Filters = props => {
     const [ isWalkByWater, setIsWalkByWater ] = useState(false)
     const [ isEducational, setIsEducational ] = useState(false)
 
+    const dispatch = useDispatch();
+
     const saveFilters = useCallback(() => {
         const appliedFilters  = {
             historic: isHistoric,
             byWater: isWalkByWater,
             educational: isEducational
         };
-        console.log(appliedFilters);
-    }, [isHistoric, isWalkByWater, isEducational]);
+        dispatch(setFilters(appliedFilters));
+    }, [isHistoric, isWalkByWater, isEducational, dispatch]);
 
 
     useEffect(() => {

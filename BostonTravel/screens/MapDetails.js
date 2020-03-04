@@ -21,10 +21,10 @@ const MapDetails = props => {
         props.navigation.setParams({ mapTitle: selectedMap.title});
     }, [selectedMap]);
     
-
+    // A function that lets us dispatch new actions 
     const dispatch = useDispatch();
 
-    const toggleFavoriteHandler =useCallback(() => {
+    const toggleFavoriteHandler = useCallback(() => {
         dispatch(toggleFavorite(mapId));
     }, [dispatch, mapId]);
 
@@ -34,7 +34,7 @@ const MapDetails = props => {
     }, [toggleFavoriteHandler]);
 
     useEffect(() => {
-        props.navigation.setParams({  isFav: currentMapIsFavorite });
+        props.navigation.setParams({ isFav: currentMapIsFavorite });
     }, [currentMapIsFavorite]);
 
     return ( 
