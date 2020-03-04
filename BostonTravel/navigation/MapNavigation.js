@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import Tours from '../screens/Tours';
@@ -12,7 +12,7 @@ import { Platform } from 'react-native';
 import Colors from '../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import { createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
-
+import AuthScreen from '../screens/AuthScreen';
 
 
 
@@ -96,6 +96,11 @@ const FiltersNavigator = createStackNavigator({
     defaultNavigationOptions: defaultStackNavOptions
 });
 
+// repace below with createDrawerNavigator when done with AuthScreen
+const AuthNavigator = createSwitchNavigator({
+    Auth: AuthScreen
+});
+
 const MainNavigator = createDrawerNavigator({
     Mapsfavs:{
         screen: MapsFavNavigator,
@@ -103,7 +108,13 @@ const MainNavigator = createDrawerNavigator({
             drawerLabel: 'Tours'
         }
     },   
-    Filters: FiltersNavigator
+    Filters: FiltersNavigator,
+    LogIn: {
+        screen: AuthNavigator,
+        navigationOptions: {
+            drawerLabel: 'LogIn'
+        }
+    },
 }, 
 {
     contentOptions: {
