@@ -97,8 +97,11 @@ const FiltersNavigator = createStackNavigator({
 });
 
 // repace below with createDrawerNavigator when done with AuthScreen
-const AuthNavigator = createSwitchNavigator({
+const AuthNavigator = createStackNavigator({
     Auth: AuthScreen
+},
+{
+    defaultNavigationOptions: defaultStackNavOptions
 });
 
 const MainNavigator = createDrawerNavigator({
