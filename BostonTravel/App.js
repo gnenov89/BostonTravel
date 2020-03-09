@@ -4,7 +4,9 @@ import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import MainNavigator from './navigation/MapNavigation';
 import { enableScreens } from 'react-native-screens';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+// adds middleware and enables our actions to be created as asynchonous 
+import ReduxThunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import mapsReducer from './store/reducers/maps';
 // Ignore warning messaages
@@ -19,7 +21,7 @@ const rootReducer = combineReducers({
   maps: mapsReducer
 });
 // Creates store for the entire app's state management 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 const fetchFonts = () => {
   return Font.loadAsync({

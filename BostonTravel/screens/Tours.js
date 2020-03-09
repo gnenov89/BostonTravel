@@ -1,5 +1,5 @@
 // This is where all Tours will be listed -FreedomTrail -Harborwalk
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { TOURS } from '../data/dummy-data';
 import CategoryGridTile from '../components/CategoryGridTile';
 import {  
@@ -14,6 +14,8 @@ import  HeaderButton from '../components/HeaderButton';
 
 const Tours = props => {
     // console.log(props);
+    const [isLoading,  setIsLoading] = useState(false);
+    
     const renderGridItem = (itemData) => {
         return ( 
         <CategoryGridTile 
