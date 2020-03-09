@@ -1,6 +1,12 @@
 // This is the UserAuth screen that goes to MapNavigation.js 
-import React, { useState, useReducer, useCallback } from 'react';
-import { ScrollView, KeyboardAvoidingView, View, StyleSheet, Button} from 'react-native';
+import React, { useEffect, useState, useReducer, useCallback } from 'react';
+import { ScrollView,
+   KeyboardAvoidingView, 
+   View, 
+   StyleSheet, 
+   Button,
+  ActivityIndicator,
+Alert} from 'react-native';
 import Card from '../components/Card';
 import Input from '../components/Input';
 import Colors from '../constants/Colors';
@@ -8,6 +14,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 // useDispatch is for dispathing actions from '../store/actions/auth.js
 import { useDispatch } from 'react-redux';
 import * as authActions from '../store/actions/auth';
+
 
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
@@ -36,6 +43,8 @@ const formReducer = (state, action) => {
   };
 
 const AuthScreen = props => {
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
     const dispatch = useDispatch();
 
@@ -50,8 +59,12 @@ const AuthScreen = props => {
         },
         formIsValid: false
       });
-
-    const authHandler = () => {
+    useEffect(() => {
+      if(error) {
+        Alert.alert('An error occured!', error, [{ text: 'Okay'}])
+      }
+    }, [error])
+    const authHandler = async () => {
         let action;
         if (isSignup) {
            action =
@@ -65,8 +78,15 @@ const AuthScreen = props => {
                 formState.inputValues.email, 
                 formState.inputValues.password);
         }
-        dispatch(action);
+        setError(null);
+        setIsLoading(true);
+        try {
+          await dispatch(action);
+        } catch (err) {
+          setError(err.message);
+        }
         
+        setIsLoading(false);
     };
 
     const inputChangeHandler = useCallback(
@@ -111,10 +131,11 @@ const AuthScreen = props => {
                       initiaValue=""
                       ></Input>
                       <View style={styles.buttonContainer}>
-                      <Button 
+                      {isLoading ? (<ActivityIndicator size="small"
+                      color={Colors.primaryColor}/>)  : (<Button 
                       title={isSignup ? "Sign Up" : "Login"}
                       color={Colors.primaryColor} 
-                      onPress={authHandler}/></View>
+                      onPress={authHandler}/>)}</View>
                       <View style={styles.buttonContainer}>
                       <Button 
                       title={`Switch to ${isSignup ? 'Login' : 'Sign Up'}`} 
